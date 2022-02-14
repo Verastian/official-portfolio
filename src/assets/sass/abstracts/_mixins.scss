@@ -1,0 +1,203 @@
+@use "variables" as v;
+
+///Administrador de Media Queries///////////////////////////////////////////////////////////
+/// @access public
+/// @param {String} $breakpoint - Breakpoint
+/// @requires v.$breakpoints
+@mixin respond-to($breakpoint) {
+  $raw-query: map-get(v.$breakpoints, $breakpoint);
+
+  @if $raw-query {
+    $query: if(
+      type-of($raw-query) == "string",
+      unquote($raw-query),
+      inspect($raw-query)
+    );
+
+    @media #{$query} {
+      @content;
+    }
+  } @else {
+    @error 'No value found for `#{$breakpoint}`. '
+             + 'Please make sure it is defined in `$breakpoints` map.';
+  }
+}
+
+///Generador de estilos para botones
+
+/* BORDER and COLOR */
+@mixin btn-Border($value_radio, $isBorder, $bg_color, $islighten) {
+  @if ($isBorder == 1) {
+    background: none;
+    border-radius: $value_radio;
+    border: 2px solid $bg_color;
+    @if ($islighten == 1) {
+      @include btn-isBorder($bg_color, 2);
+      @include btn-Text($bg_color, 1);
+    } @else {
+      @include btn-isBorder($bg_color, 1);
+      @include btn-Text($bg_color, 2);
+    }
+  }
+  @if ($isBorder == 2) {
+    background: $bg_color;
+    border-radius: $value_radio;
+    @if ($islighten == 1) {
+      @include btn-backColor($bg_color, 1);
+      @include btn-Text($bg_color, 1);
+    } @else {
+      @include btn-backColor($bg_color, 2);
+      @include btn-Text($bg_color, 2);
+    }
+  }
+  @if ($isBorder == 3) {
+    background: $bg_color;
+    border-radius: $value_radio;
+    @if ($islighten == 1) {
+      border: 2px solid lighten($bg_color, 35%);
+      @include btn-isBorder($bg_color, 2);
+      @include btn-Text($bg_color, 1);
+      @include btn-backColor($bg_color, 1);
+    } @else {
+      border: 2px solid lighten($bg_color, 1%);
+      @include btn-isBorder($bg_color, 1);
+      @include btn-Text($bg_color, 2);
+      @include btn-backColor($bg_color, 2);
+    }
+  }
+  @if ($isBorder == 4) {
+    background: $bg_color;
+    border-radius: $value_radio;
+    @if ($islighten == 1) {
+      /* border: 2px solid lighten($bg_color, 35%); */
+      @include btn-isBorder($bg_color, 3);
+      @include btn-Text($bg_color, 1);
+      @include btn-backColor($bg_color, 1);
+    } @else {
+      /* border: 2px solid lighten($bg_color, 1%); */
+      @include btn-isBorder($bg_color, 4);
+      @include btn-Text($bg_color, 2);
+      @include btn-backColor($bg_color, 2);
+    }
+  }
+}
+/* backColorbtn-backColor */
+@mixin btn-backColor($bg_color, $islighten) {
+  cursor: pointer;
+  @if ($islighten == 1) {
+    background-color: lighten($bg_color, 1%);
+    &:hover {
+      background-color: lighten($bg_color, 20%);
+    }
+  }
+  /* lighten */
+  @if ($islighten == 2) {
+    background-color: lighten($bg_color, 20%);
+    &:hover {
+      background-color: lighten($bg_color, 1%);
+    }
+  }
+}
+@mixin btn-Text($bg_color, $islighten) {
+  span svg {
+    height: 1em;
+    padding-left: 0.5em;
+  }
+  /* Dark */
+  @if ($islighten == 1) {
+    color: lighten($bg_color, 40%); //text
+    fill: lighten($bg_color, 40%); //svg
+    &:hover {
+      color: lighten($bg_color, 1%); //text
+      fill: lighten($bg_color, 1%); //svg
+    }
+  }
+  /* lighten */
+  @if ($islighten == 2) {
+    color: lighten($bg_color, 1%); //text
+    fill: lighten($bg_color, 1%); //svg
+    &:hover {
+      color: lighten($bg_color, 40%); //text
+      fill: lighten($bg_color, 40%); //svg
+    }
+  }
+}
+
+@mixin btn-isBorder($bg_color, $isBorder) {
+  /* dark and light without background color */
+  
+  @if ($isBorder == 1) {
+    /* Dark */
+    $percentDark: 5%;
+    $percentLight: 40%;
+    border-color: lighten($bg_color, $percentDark);
+    &:hover {
+      border-color: lighten($bg_color, $percentLight);
+    }
+  }
+  @if ($isBorder == 3) {
+    /* Dark */
+    &:hover {
+      
+      border-style: solid;
+      border-width: 2px;
+      $percentDark: 5%;
+      border-color: lighten($bg_color, $percentDark);
+    }
+  }
+  /* lighten */
+  @if ($isBorder == 2) {
+    $percentDark: 5%;
+    $percentLight: 40%;
+    border-color: lighten($bg_color, $percentLight);
+    &:hover {
+      border-color: lighten($bg_color, $percentDark);
+    }
+  }
+  @if ($isBorder == 4) {
+    &:hover {
+      border-style: solid;
+      border-width: 2px;
+      $percentLight: 40%;
+      border-color: lighten($bg_color, $percentLight);
+    }
+  }
+}
+
+@mixin style-btns($code-style,$value_radio,$isLighten,$bg_color: transparent,$isBorder) {
+  @if $code-style == 1 {
+    @include btn-Border($value_radio, $isBorder, $bg_color, $isLighten);
+    /* @include btn-Hover($bg_color, $bg_lighten); */
+  }
+
+  @if $code-style == 2 {
+    $temp: $value_radio/2 $value_radio $value_radio/2 $value_radio;
+    @include btn-Border($temp, $isBorder, $bg_color, $isLighten);
+  }
+
+  @if $code-style == 3 {
+    $temp: $value_radio $value_radio/2 $value_radio $value_radio/2;
+    @include btn-Border($temp, $isBorder, $bg_color, $isLighten);
+  }
+
+  @if $code-style == 4 {
+    $temp: $value_radio * 2 0 $value_radio * 3 0;
+    @include btn-Border($temp, $isBorder, $bg_color, $isLighten);
+  }
+  @if $code-style == 5 {
+    $temp: $value_radio * 2 0 0 $value_radio * 2;
+    @include btn-Border($temp, $isBorder, $bg_color, $isLighten);
+  }
+  @if $code-style == 6 {
+    $temp: 0 $value_radio * 2 $value_radio * 2 0;
+    @include btn-Border($temp, $isBorder, $bg_color, $isLighten);
+  }
+  @if $code-style == 7 {
+    $temp: $value_radio * 2 $value_radio * 2 0 0;
+    @include btn-Border($temp, $isBorder, $bg_color, $isLighten);
+  }
+  @if $code-style == 8 {
+    $temp: 0 0 $value_radio * 2 $value_radio * 2;
+    @include btn-Border($temp, $isBorder, $bg_color, $isLighten);
+  }
+}

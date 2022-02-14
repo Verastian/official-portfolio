@@ -1,0 +1,30 @@
+@use "abstracts/mixins" as m;
+@use "abstracts/variables" as v;
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the button component.
+// -----------------------------------------------------------------------------
+.btn{
+  display: inline-block;
+  vertical-align: middle;
+  overflow: hidden;
+  text-decoration: none;
+  text-align: center;
+  font-size: v.$s;
+  transition: all 0.5s ease;
+}
+
+.btn-1 {
+  padding: 0.5rem;
+  //style-btns(style,radio,dark/ligth,color,whit border/backgr/two)
+  /* @include m.style-btns(1, 0px, v.$blue-fluor); */
+}
+.btn-2 {
+  font-size: v.$s;
+  padding: 1em 1.5em;
+  //style-btns(style,radio,dark/ligth,color,whit border/backgr/two)
+  @include m.style-btns(1, 10px,1, v.$red-fluor, 3);
+  .icon{
+      display: flex;
+      align-items: center;
+  }
+}

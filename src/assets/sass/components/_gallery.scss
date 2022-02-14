@@ -1,0 +1,22 @@
+@use "abstracts/variables" as v;
+@use "abstracts/mixins" as m;
+
+.gallery {
+  background-color: v.$color-primary;
+  min-height: 100%;
+}
+
+/* .grids {
+  display: grid;
+  grid-auto-rows: auto;
+  gap: 1rem;
+  grid-auto-flow: row dense;
+  grid-template-columns: repeat(1, 1fr);
+  @include m.respond-to("bp-md") {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .box:nth-child(1) {
+    grid-column: 1/2;
+  }
+  
+} */

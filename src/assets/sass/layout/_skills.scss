@@ -1,0 +1,169 @@
+@use "abstracts/variables" as v;
+@use "abstracts/mixins" as m;
+
+.skills {
+  margin: 5em 0;
+  display: grid;
+  grid-template-rows: repeat(1, 1fr);
+
+  .box {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    transition: all 0.5s ease;
+
+    /**** Left *****/
+    .subBox-left:nth-child(1) {
+      grid-column: 2/ 4; /* mobil first */
+
+      @include m.respond-to("bp-lg") {
+        grid-column: 3/ 5;
+      }
+      .subBox-left-indicators {
+        min-width: 230px;
+        max-width: 360px;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        .box-subBox:nth-child(1) {
+          grid-column: 1/2;
+        }
+        .box-subBox:nth-child(2) {
+          grid-column: 4/5;
+        }
+      }
+    }
+    /* img brain */
+    .subBox-left:nth-child(2) {
+      grid-column: 6/ 7;
+    }
+
+    /**** Right */
+    .subBox-right:nth-child(2) {
+      grid-column: 4/ 6; /* mobil first */
+
+      @include m.respond-to("bp-lg") {
+        grid-column: 3/ 5;
+      }
+      .subBox-right-indicators {
+        min-width: 230px;
+        max-width: 360px;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        .box-subBox:nth-child(1) {
+          /* icon */
+          grid-column: 1/2;
+        }
+        .box-subBox:nth-child(2) {
+          /* porcent */
+          grid-column: 4/5;
+        }
+      }
+    }
+    /* img brain */
+    .subBox-right:nth-child(1) {
+      grid-column: 1/ 2;
+    }
+  }
+  /* division principal */
+  @include m.respond-to("bp-lg") {
+    grid-template-columns: repeat(2, 1fr);
+    transition: all 0.5s ease;
+
+    .box:nth-child(1) {
+      grid-column: 1 / 2;
+    }
+    .box:nth-child(2) {
+      grid-column: 2 / 3;
+    }
+  }
+}
+
+.indicators-left {
+  .indicators__img-left {
+    background-image: url("../../assets/img/svg/illustrations/indicator1.svg");
+    min-height: 120px;
+    background-position: right;
+    background-repeat: no-repeat;
+    background-size: contain;
+    transition: all 0.5s ease;
+
+    .indicators__icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      svg {
+        max-width: 2.8em;
+      }
+      @include m.respond-to("bp-md") {
+        svg {
+          max-width: 3.5em;
+        }
+      }
+    }
+  }
+}
+.indicators-right {
+  .indicators__img-right {
+    background-image: url("../../assets/img/svg/illustrations/indicator2.svg");
+    min-height: 120px;
+    background-position: left;
+    background-repeat: no-repeat;
+    background-size: contain;
+    transition: all 0.5s ease;
+
+    .indicators__icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      svg {
+        max-width: 2.8em;
+      }
+      @include m.respond-to("bp-md") {
+        svg {
+          max-width: 3.5em;
+        }
+      }
+    }
+  }
+}
+.brain-left-image {
+  background-image: url("../../assets/img/svg/brain-left.svg");
+  /* min-width: 300px;
+  min-height: 600px; */
+  background-position: right;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.brain-right-image {
+  background-image: url("../../assets/img/svg/brain-right.svg");
+  /* min-width: 300px;
+  min-height: 600px; */
+  background-position: left;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.skills__column-left {
+  background-color: v.$red-fluor-bg;
+  padding: 1em 0;
+}
+.skills__column-right {
+  background-color: v.$color-secondary-bg;
+  padding: 1em 0;
+}
+
+.skill__text-light {
+  color: v.$white;
+  font-size: v.$l;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.skill__text-dark {
+  color: v.$color-primary;
+  font-size: v.$l;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.skills__title {
+  color: v.$white;
+}

@@ -1,0 +1,77 @@
+@use "abstracts/variables" as v;
+@use "abstracts/mixins" as m;
+/* #app {
+    align-items: center;
+    bottom: 0;
+    background-color: #34495e;
+    display: flex;
+    justify-content: center;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top:0;
+}
+ */
+.countUp__content {
+/*   display: flex;
+  justify-content: center; */
+display: grid;
+grid-template-columns: repeat(3,1fr);
+grid-auto-flow: column;
+.block__container:nth-child(1){
+    grid-column: 2/3;
+    display: grid;
+    grid-template-columns: repeat(5,1fr);
+    grid-auto-flow: column;
+    .block:nth-child(n+2){
+        display: none;
+    }
+    .block:nth-child(1){
+        grid-column: 3/4;
+    }
+    @include m.respond-to("bp-lg"){
+        grid-template-columns: repeat(4,1fr);
+        .block:nth-child(n+2){
+            display: block;
+        }
+        .block:nth-child(1){
+            display: block;
+            grid-column: 1/2;
+        }
+
+    }
+
+}
+
+}
+.block__content {
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+    @include m.respond-to("bp-lg"){
+        min-width:170px ;
+
+    }
+}
+.count__text {
+    color: v.$red-fluor;
+    font-size: v.$l;
+    /* font-family: 'Roboto Condensed', serif; */
+    font-weight: 300;
+    margin-top:10px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+.digit {
+    color:v.$color-primary;
+    font-size: 8em;
+    font-weight: 300;
+    /* font-family: 'Roboto', serif; */
+    margin: 2px;
+    text-align: center;
+    @include m.respond-to("bp-lg"){
+        font-size: 6em;
+        margin: 10px;
+
+    }
+}

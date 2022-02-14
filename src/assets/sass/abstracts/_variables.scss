@@ -1,0 +1,74 @@
+// -----------------------------------------------------------------------------
+// VARIABLES
+// -----------------------------------------------------------------------------
+
+//FONTS
+//import
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Oxygen+Mono&display=swap');
+
+//font variables
+$font-primary:'Josefin Sans',sans-serif;
+$font-secondary:'Montserrat',sans-serif;
+$font-console:'Oxygen Mono', monospace;
+
+// Unit
+$separacion: 5rem;
+
+//colors
+$color-primary:#333333;
+$color-secondary:#f0db4f;
+$color-secondary-bg:#c0af3f;
+$red-fluor-bg:#af454b;
+$white:#ebebeb;
+$grey-6:#d8d8d8;
+$black:#1e1e1e;
+$grey-1:#3f3f3f;
+$text-color:#191919;
+$green-fluor:#9acd32;
+$red-fluor:#db575e;
+$blue-fluor:#4f64f0;
+$blue-fluor-dark:#2f3c90;
+
+$shadow-green-fluor:
+0 0 1px rgba(204,230,152,1),
+0 0 2px rgba(164,210,70,1),
+0 0 4px rgba(154,205,127,1),
+0 0 7px rgba(154,205,127,1),
+0 0 10px rgba(154,205,127,1),
+0 0 15px rgba(154,205,127,1),
+0 0 30px rgba(154,205,127,1),
+0 0 50px rgba(154,205,127,1);
+
+
+
+//max content
+$max-width: 120rem !default;
+
+// breakpoints Media Query
+$breakpoints: (
+  'bp-sm': (min-width: 576px),
+  'bp-md': (min-width: 768px),
+  'bp-lg': (min-width: 992px),
+  'bp-xl': (min-width: 1200px),
+);
+
+// Font Weight
+$regular: 400;
+$light-fnt:300;
+$black_fnt: 900;
+
+// Font Sizes
+$xxxl: 6.4rem;
+$xxl: 4.75rem;
+$xl: 3.6rem;
+$l: 2.425rem;
+$m: 2rem;
+$s: 1.75rem;
+$xs: 1.2rem;
+
+
+
+

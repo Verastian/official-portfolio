@@ -1,0 +1,212 @@
+@use "abstracts/variables" as v;
+@use "abstracts/mixins" as m;
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the header of the site/application.
+// -----------------------------------------------------------------------------
+
+.header {
+  background-color: v.$color-primary;
+  padding: calc(v.$separacion * 2) 0;
+  color: v.$white;
+  
+  .header__content{
+    max-width: 160rem;
+    width: 90%;
+    margin: 0 auto;
+    @include m.respond-to("bp-xl") {
+      max-width: 140rem;
+    }
+    @include m.respond-to("bp-md") {
+      
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+  
+        .box:nth-child(2) {
+          grid-row: 1/2;
+        }
+      
+    }
+    
+  }
+}
+
+.header__text {
+  text-align: center;
+  padding: v.$separacion 0;
+  /* align-items: center; */
+  h1{
+    text-transform: uppercase;
+  }
+  h4,div{
+      margin-top:v.$separacion ;
+  }
+
+  @include m.respond-to("bp-md") {
+    
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    text-align: center;
+    padding: 0;
+    h4,div{
+        margin-top:0;
+    }
+  }
+
+  span {
+    margin: 0;
+  }
+  h4 {
+    display: inline;
+    width: auto;
+    font-size: 1em;
+    @include m.respond-to("bp-md") {
+      margin-top:v.$separacion 
+    }
+    @include m.respond-to("bp-lg") {
+      text-align: center;
+      font-size: 1.5em;
+        span{
+            font-size: 1.5em;
+        }
+
+    }
+  }
+  .typewriter {
+    color: v.$green-fluor;
+    font-family: v.$font-console;
+    text-shadow: v.$shadow-green-fluor;
+    border-right: 3px v.$green-fluor solid;
+    font-weight: v.$light-fnt;
+  }
+  .name {
+    font-size: 6rem;
+    margin: 0;
+    @include m.respond-to("bp-md") {
+      font-size: 3em;
+      line-height: 1;
+    }
+    @include m.respond-to("bp-lg") {
+      font-size: 6em;
+      line-height: 1;
+    }
+  }
+  .hello {
+    font-size: 3rem;
+    font-weight: 900;
+  }
+}//end header__tex
+
+.square {
+  color: v.$color-primary;
+  transform: translateX(-50%) translateY(-50%);
+  position: relative;
+}
+.square__position-header{
+  &:before,
+  &:after {
+    background-color: v.$color-secondary;
+    z-index: -1;
+    content: "";
+    padding: 0.4em 0.4em;
+    position: absolute;
+    left: 50%;
+    top: 40%;
+    //display: block;
+    border: 10px solid v.$color-secondary;
+    box-shadow: 0px 2px 15px  rgba(46, 46, 49, 0.6);
+    animation: 10s infinite alternate ease-in-out tipsy;
+  }
+}
+@keyframes tipsy {
+  from {
+    transform: translateX(-50%) translateY(-50%) rotate(0deg);
+  }
+  to {
+    transform: translateX(-50%) translateY(-50%) rotate(360deg);
+  }
+}
+.header__btn {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  @include m.respond-to("bp-lg") {
+    flex-direction: row;
+    
+  }
+  .btn__contact {
+    font-size: 2.8rem;
+    font-family: v.$font-console;
+    color: v.$red-fluor;
+    margin: 1rem 0;
+    span {
+      color:#60571f;
+     /*  animation: 1s steps(20, start) infinite flaw; */
+    }
+  }
+  .btn__contact:hover span {
+    color: v.$green-fluor;
+    text-shadow: v.$shadow-green-fluor;
+  }
+}
+
+.header__avatar{
+    display: flex;
+    justify-content: center;
+    position: relative;
+    
+
+    /* .two{width: 170px;height: 170px;bottom: 60px;} */
+    .img__main{
+        position: relative;
+        /* position: absolute;
+        right: -200px;
+        bottom: 50px;
+        width: 100%; */
+        z-index: 1;
+        .draw{
+            
+            position: absolute;
+            right: 107px;
+            top: -35px;
+            width: 55%;
+        }
+    }
+    .two{
+        position: absolute;
+        left: 0px;
+        bottom: 0px;
+        width: 100%;
+        height: 100%;
+        @include m.respond-to("bp-md") {
+            width: 50%;
+            left: 200px;
+            bottom: -10px;
+          }
+        
+
+        .in{
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border: 10px solid v.$color-secondary;
+           /*  background-color:	v.$blue-fluor; */
+            @include m.respond-to("bp-md") {
+              left: -180px;
+              width: 320px;
+            }
+            @include m.respond-to("bp-xl") {
+              left: -70px;
+              width: 400px;
+            }
+           
+        }
+    }
+}
+
+
+
+
+
+

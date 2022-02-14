@@ -1,0 +1,61 @@
+@use "abstracts/variables" as v;
+@use "abstracts/mixins" as m;
+
+.navbar-app {
+  @include m.respond-to("bp-md") {
+    /* position: fixed;
+    z-index: 10;
+    top: 0px;
+    left: 0px;
+    right: 0px; */
+
+  }
+}
+
+.nav__content {
+  display: flex;
+  flex-direction: column;
+  @include m.respond-to("bp-md") {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .logo {
+    width: 50%;
+    margin: 0 auto;
+
+    @include m.respond-to("bp-md") {
+      width: 16rem;
+      margin: 0;
+    }
+  }
+}
+
+.nav__text {
+  display: flex;
+  flex-direction: column;
+  margin-top: 5rem;
+  @include m.respond-to("bp-md") {
+    flex-direction: row;
+  }
+  span {
+    color: v.$white;
+    padding: 0 0 0 2em;
+    font-size: 2rem;
+    font-family: v.$font-primary;
+    margin-bottom: 1rem;
+    font-weight: 400;
+    cursor: pointer;
+
+    &:hover {
+      color: v.$color-secondary;
+    }
+    /* https://escuelavue.es/series/curso-vue-router-espanol/vue-router-active-css-class/ 
+https://github.com/juanwmedia/vue-router-esencial/commit/7b8a2516fcf74fd77902569737f54e17fdc722cc
+observar los cambios en el constructor de router*/
+    &.activeExact {
+      color: v.$color-secondary;
+    }
+  }
+}

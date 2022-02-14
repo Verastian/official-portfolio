@@ -1,0 +1,59 @@
+@use "abstracts/variables" as v;
+// -----------------------------------------------------------------------------
+// Clases de ayuda
+// -----------------------------------------------------------------------------
+
+/**
+ * Clear inner floats
+ */
+.clearfix::after {
+  clear: both;
+  content: "";
+  display: table;
+}
+
+/**
+ Contenedores principales
+ * 1. Hacer el contenedor de ancho completo con un ancho máximo
+ * 2. Centrarlo en la ventana gráfica
+ * 3. Deje algo de espacio en los bordes, especialmente valioso en pantallas pequeñas
+ */
+.container-app {
+  /* max-width: v.$max-width; 
+  margin-left: auto; 
+  margin-right: auto; 
+  padding-left: 20px; 
+  padding-right: 20px; 
+  width: 100%;  */
+  max-width: v.$max-width;
+  width: 90%;
+  margin: 0 auto;
+}
+
+//transition Router
+.fade-routes-enter-active {
+  animation: fade-in 0.5s ease-in-out;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.fade-routes-leave-active {
+  animation: fade-out 0.3s ease-in-out;
+}
+
+@keyframes fade-out{
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
