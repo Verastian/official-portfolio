@@ -9,7 +9,7 @@
   padding: calc(v.$separacion * 2) 0;
   color: v.$white;
   
-  .header__content{
+  &__content{
     max-width: 160rem;
     width: 90%;
     margin: 0 auto;
@@ -28,9 +28,8 @@
     }
     
   }
-}
-
-.header__text {
+  
+  &__text {
   text-align: center;
   padding: v.$separacion 0;
   /* align-items: center; */
@@ -38,9 +37,9 @@
     text-transform: uppercase;
   }
   h4,div{
-      margin-top:v.$separacion ;
+    margin-top:v.$separacion ;
   }
-
+  
   @include m.respond-to("bp-md") {
     
     text-align: left;
@@ -50,10 +49,10 @@
     text-align: center;
     padding: 0;
     h4,div{
-        margin-top:0;
+      margin-top:0;
     }
   }
-
+  
   span {
     margin: 0;
   }
@@ -67,10 +66,10 @@
     @include m.respond-to("bp-lg") {
       text-align: center;
       font-size: 1.5em;
-        span{
-            font-size: 1.5em;
-        }
-
+      span{
+        font-size: 1.5em;
+      }
+      
     }
   }
   .typewriter {
@@ -97,6 +96,7 @@
     font-weight: 900;
   }
 }//end header__tex
+}
 
 .square {
   color: v.$color-primary;
@@ -121,10 +121,10 @@
 }
 @keyframes tipsy {
   from {
-    transform: translateX(-50%) translateY(-50%) rotate(0deg);
+    transform: translateX(-50%) translateY(-50%) rotate(-10deg);
   }
   to {
-    transform: translateX(-50%) translateY(-50%) rotate(360deg);
+    transform: translateX(-50%) translateY(-50%) rotate(100deg);
   }
 }
 .header__btn {

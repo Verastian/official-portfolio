@@ -42,7 +42,7 @@
 export default {
   data() {
     return {
-      message: "{ Fullstack:Developer };        ",
+      message: "{ Developer: Fullstack }         ",
       typewriter: "",
       timer: null,
     };

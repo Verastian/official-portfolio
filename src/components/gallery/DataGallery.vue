@@ -1,13 +1,13 @@
 <template>
-    <ul class="">
-      <li class="box text-white" v-for="(item, i) in getListFinal" :key="i">
-        <slot :items="item"></slot>
-      </li>
-    </ul>
+  <ul class="gallery">
+    <li class="box text-white" v-for="(item, i) in filterByCategory" :key="i">
+      <slot :items="item"></slot>
+    </li>
+  </ul>
 </template>
 
 <script>
-import {  mapActions,mapGetters } from "vuex";
+import { mapActions, mapGetters, mapState } from "vuex";
 export default {
   data() {
     return {
@@ -20,25 +20,28 @@ export default {
     };
   },
   computed: {
-    ...mapGetters("getDataRepos", ["getListFinal"]),
+    ...mapState("getDataRepos", ["repos"]),
+    ...mapGetters("getDataRepos", ["filterByCategory"]),
   },
   methods: {
-    ...mapActions("getDataRepos", ["getDataRepos","getdataImgReadme","getLanguages"]),
-     principalRepos() {
-       this.listRepos.forEach((ele) => {
-         this.getdataImgReadme(ele);
-         this.getDataRepos(ele)
-         this.getLanguages(ele)
+    ...mapActions("getDataRepos", ["getDataRepos"]),
+    principalRepos() {
+      this.listRepos.forEach((ele) => {
+        this.getDataRepos(ele);
       });
     },
   },
   created() {
-    this.principalRepos();
-    this.getListFinal;
-    console.log(this.getListFinal);
+    if (this.repos.length === 0) {
+      this.principalRepos();
+      this.repos;
+      this.filterByCategory;
+      //console.log(this.filterByCategory)
+    }
+    // this.getListFinal;
+    // console.log(this.repos.img);
   },
 };
 </script>
 
 <style></style>
-

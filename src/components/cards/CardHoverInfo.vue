@@ -1,9 +1,13 @@
 <template>
   <div class="card">
     <div class="cards cards--three">
-      <div class="card__img">
+     <!--  <div class="card__img" v-if="src === undefined">
+        <img  src="../../assets/img/mssg/images.png" alt="">
+      </div> -->
+      <div class="card__img" >
         <img
-          :src="src"
+        
+          :src="image"
           class="img-responsive"
           alt="Cards Image"
           loading="lazy"
@@ -25,7 +29,7 @@
       </span>
       <span class="cards--three__circle"></span>
       <ul class="cards--three__list">
-        <li v-for="(item, i) in dataLanguages" :key="i">
+        <li v-for="(item, i) in data.languages" :key="i">
           <span v-for="(icon, j) in dataIcons" :key="j">
             <TooltipButton :transition="'bounce'" :text="i | capitalize">
               <span v-if="j === i" v-html="icon"></span>
@@ -41,6 +45,7 @@
 <script>
 /* eslint-disable no-unused-vars */
 import TooltipButton from "../tooltip/TooltipButton.vue";
+import axios from "axios";
 export default {
   components: {
     TooltipButton,
@@ -49,10 +54,10 @@ export default {
     return {};
   },
   props: {
-    src: {
+    /* src: {
       type: String,
-      required: true,
-    },
+      required: false,
+    }, */
     data: {
       type: Object,
       required: true,
@@ -63,50 +68,40 @@ export default {
     },
   },
   /* https://www.digitalocean.com/community/tutorials/vuejs-async-computed-properties */
-  asyncComputed: {
-    dataLanguages: {
+  /* asyncComputed: {
+    getImg: {
       get() {
         return new Promise((resolve, reject) => {
-          const arr =
-            this.data.languages != undefined
-              ? Object.entries(this.data.languages).map(([key, value]) => {
-                  key = key.toString().toLowerCase();
-                  value = ((value * 100) / 395735).toFixed(2);
-
-                  return [key, value];
-                  // console.log(key +':' + value)
-                })
-              : "";
-          const obj = Object.fromEntries(arr);
-          resolve(obj);
+         axios.get(this.data.img.download_url)
+         .then(res =>{
+           
+           console.log(res);
+          resolve(res);
+         });
+         
         });
       },
-      default: "No Changes!",
+      default: "../../assets/img/mssg/images.png",
     },
-  },
+  }, */
   computed: {
     dataIcons() {
       return this.icons;
     },
+    image(){
+      const {img} = this.data;
+      return img
+    }
   },
   methods: {},
+  beforeMount(){
+    this.data;
+    this.image;
 
-  created() {
-    this.dataLanguages;
-    this.dataIcons;
-    console.log(this.dataLanguages);
   },
-  filters: {
-    lowerCased: function (data) {
-      if (!data) return "";
-      data = data.toString();
-      return data.toLowerCase();
-    },
-    capitalize: function (value) {
-      if (!value) return "";
-      value = value.toString();
-      return value.charAt(0).toUpperCase() + value.slice(1);
-    },
+  created() {
+    this.dataIcons;
+    // console.log(this.data.img);
   },
 };
 </script>

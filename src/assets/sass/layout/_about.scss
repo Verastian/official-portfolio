@@ -5,8 +5,8 @@
   background-color: v.$grey-6;
   padding: calc(v.$separacion * 2) 0;
   color: v.$grey-1;
-
-  .about__content {
+  overflow: hidden;
+  &__content {
     /*  max-width: 160rem; */
     width: 90%;
     margin: 0 auto;
@@ -155,3 +155,9 @@
     animation: 10s infinite alternate ease-in-out tipsy;
   }
 }
+
+/* .moving_effect{
+	will-change: transform;
+	transition: transform 5s cubic-bezier(0, 0, 0, 1) 0s;
+	display: block;
+} */

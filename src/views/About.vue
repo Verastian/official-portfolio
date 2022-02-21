@@ -2,12 +2,14 @@
   <div class="about">
     <div class="about__content">
       <div class="box about__column-left">
-        <span class="two"> <span class="three"></span><span class="four"></span></span>
+        <span class="two"> <span class="three"></span><span class="four " 
+            ></span></span>
       </div>
       <div class="box text__content">
         <div class="title">
           <span class="small ">Hola!, </span>
-          <h3 class=""><span class="square__position-about">S</span>oy <span class="text-red-fluor">Sebastian</span>,</h3>
+          <h3 class=""><span 
+          class="square__position-about ">S</span>oy <span class="text-red-fluor">Sebastian</span>,</h3>
           <!-- <span class="subtitle">Alias Verastian y creo ser</span> -->
           <h3>Web <span class="text-red-fluor">Developer</span></h3>
           <span class="subtitle">Establecido en Santiago,Chile</span>
@@ -70,7 +72,11 @@
             lazyalt="imagen"
             alt=""
           />
-          <span class="two"> <span class="three"></span><span class="four"></span></span>
+          <span class="two"> <span class="three">
+            </span>
+            <span class="four">
+          </span>
+          </span>
           
         </div>
         
@@ -80,17 +86,20 @@
     <Skills/>
     <!-- "Y-m-d H:i:s" -->
     <CountUp  date="2020-07-06 18:00:00"/>
+    <Resume/>
   </div>
 </template>
 <script>
 import { download } from "../assets/img/svg/icons/iconsSvg";
 import Skills from '../components/skills/Skills.vue'
 import CountUp from '../components/skills/CountUp.vue'
+import Resume from '../components/skills/Resume.vue'
 export default {
   name: "About",
   components:{
     Skills,
     CountUp,
+    Resume
   },
   data() {
     return {
