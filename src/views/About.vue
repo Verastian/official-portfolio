@@ -56,8 +56,8 @@
         <div>
           <a
             class="btn-2 btn"
-            href="../assets/img/cv/sebastian-vera.jpg"
-            download
+            :href="srcDownload"
+            download="sebastian-vera.jpg"
           >
             <span class="icon" v-html="download"> </span>
           </a>
@@ -103,6 +103,7 @@ export default {
   },
   data() {
     return {
+      srcDownload:`${process.env.BASE_URL}cv/sebastian-vera.jpg`,
       download: `Download CV ${download}`,
     };
   },

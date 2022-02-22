@@ -1,0 +1,60 @@
+@use "abstracts/variables" as v;
+@use "abstracts/mixins" as m;
+
+.select-filter__container{
+    padding: 2em 0;
+}
+
+.dataFilter{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    &__container {
+        margin: 0 1rem;
+        width: 55px;
+        height: 55px;
+        span svg{
+            width: 50px;
+            height: 50px;
+            /*  fill:v.$color-secondary-bg; */
+            /* filter: invert(50%) sepia(80%) saturate(400%); */
+            filter: gray;
+            filter: grayscale(100%);
+            #ic_fluent_select_all_24_regular{
+                fill:v.$white;
+            }
+            transition:width .5s, height .5s, filter .8s;
+            &:hover{
+                width: 60px;
+                height: 60px;
+                filter: grayscale(0%);
+                
+            }
+        }
+        
+        .box-icons{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center; 
+            span{
+                color: v.$white;
+            }
+            &:hover .icons-text{
+                color: v.$color-secondary;
+            }
+            &:hover #ic_fluent_select_all_24_regular{
+                fill:v.$color-secondary;
+            }
+            
+            
+        }
+    }
+    &__box:nth-child(1){
+        grid-column: 2/3;
+    }
+    &__box {
+        display: flex;
+        justify-content: center;
+       
+    }
+}
