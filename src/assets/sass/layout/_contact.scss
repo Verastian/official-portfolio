@@ -1,0 +1,111 @@
+@use "abstracts/mixins" as m;
+@use "abstracts/variables" as v;
+
+.contact {
+  overflow: hidden;
+  background-color: v.$grey-6;
+  @include m.respond-to("bp-lg") {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: repeat(auto-fit, auto);
+    grid-gap: 1em;
+
+    &__box:nth-child(1) {
+      grid-column: 3/11;
+      grid-row: 3/4;
+    }
+    &__box:nth-child(2) {
+      grid-column: 3/7;
+      grid-row: 4/5;
+    }
+    &__box:nth-child(3) {
+      grid-column: 8/13;
+      grid-row: 3/5;
+      z-index: 1;
+    }
+    &__box:nth-child(4) {
+      grid-column: 8/13;
+      grid-row: 3/5;
+      z-index: 2;
+    }
+    &__box:nth-child(5) {
+      grid-column: 7/11;
+      grid-row: 4/5;
+      z-index: 3;
+    }
+  }
+  &__head {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  &__block {
+    width: 100%;
+    height: auto;
+    position: relative;
+    @include m.respond-to("bp-lg") {
+      .block {
+        background-color: v.$color-secondary-bg;
+        /*  border-radius: 10px 0 0 10px; */
+        position: absolute;
+        bottom: 50px;
+        left: 0px;
+        width: 100%;
+        height: 400px;
+      }
+      .border {
+        border: 6px solid v.$white;
+        width: 300px;
+        height: 300px;
+        position: absolute;
+        bottom: 200px;
+        left: 300px;
+      }
+    }
+  }
+}
+
+.list_inner {
+    width: 100%;
+    display: flex;
+    padding: 1em 0;
+
+  .list_text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    h3,
+    span {
+      margin: 0px 0px 0px 1em;
+    }
+  }
+  svg {
+    width: 60px;
+  }
+}
+.line__anim {
+  display: inline-block;
+  position: relative;
+
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  &:after {
+    content: "";
+    width: 0;
+    height: 1px;
+    position: absolute;
+    left: auto;
+    right: 0;
+    bottom: 3px;
+    transition: width 0.6s cubic-bezier(0.25, 0.8, 0.25, 1) 0s;
+    background: currentColor;
+  }
+  &:hover:after {
+    width: 100%;
+    left: 0;
+    right: auto;
+  }
+}
