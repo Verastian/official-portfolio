@@ -1,0 +1,39 @@
+@use "abstracts/mixins" as m;
+@use "abstracts/variables" as v;
+
+.box__icons {
+  position: relative;
+  padding-left: 65px;
+  .icon {
+    position: absolute;
+    top: -10px;
+    left: 0px;
+    width: 48px;
+    height: 48px;
+    border-radius: 100%;
+    background-color: #ea4343;
+    
+    .svg {
+      width: 25px;
+      height: 25px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      fill: v.$white;
+    }
+    &__btn{
+      background-color: v.$color-secondary;
+      top: 10px;
+      .svg{
+        fill: v.$color-primary;
+      }
+
+    }
+    &__hover{
+      background-color: #ea4343;
+      top: 10px;
+   
+    }
+  }
+}

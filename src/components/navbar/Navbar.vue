@@ -1,14 +1,14 @@
 <template>
-  <nav class="navbar-app" style="background-color: #333333">
-    <div class="container-app">
-      <div class="nav__content">
-        <div class="logo">
-          <img
+  <nav class="navbar" style="background-color: #333333">
+      
+        <div class="navbar__box navbar__logo">
+          <!-- <img
             src="../../assets/img/logo/logo-verastian.svg"
             alt="logo-verastian"
-          />
+          /> -->
+          <span v-html="logoPrimary"></span>
         </div>
-        <div class="">
+        <div class="navbar__box navbar__items">
           <div class="nav__text">
             <router-link tag="span" to="/">Home</router-link>
             <router-link tag="span" to="/about">About</router-link>
@@ -19,13 +19,19 @@
             <span class="navbar-toggler-icon"></span>
           </button> -->
         </div>
-      </div>
-    </div>
   </nav>
 </template>
 
 <script>
-export default {};
+import {logoPrimary} from '../../assets/img/svg/logos/logos'
+export default {
+
+  data(){
+    return{
+      logoPrimary,
+    }
+  }
+};
 </script>
 
 <style >

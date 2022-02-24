@@ -4,13 +4,16 @@
     <transition name="fade-routes" mode="out-in">
     <router-view />
     </transition>
+    <Footer/>
   </div>
 </template>
 <script>
 import Navbar from "./components/navbar/Navbar.vue";
+import Footer from "./components/footer/Footer.vue";
 export default {
   components: {
     Navbar,
+    Footer,
   },
   data(){
     return{}
@@ -19,5 +22,6 @@ export default {
 };
 </script>
 <style lang="scss" src="./assets/sass/main.scss">
+
 
 </style>

@@ -21,10 +21,20 @@
         ></textarea>
       </div>
     </div>
+    <div>
+          <a
+            class="btn-2 btn"
+            href=""
+            download="sebastian-vera.jpg"
+          >
+            <span class="icon" v-html="download"> </span>
+          </a>
+        </div>
   </form>
 </template>
 
 <script>
+import { msgSent} from "../../assets/img/svg/icons/iconsSvg";
 export default {
   data() {
     return {
@@ -34,6 +44,8 @@ export default {
         phone: "",
         msg: "",
       },
+      msgSent,
+      download: `Enviar Mensaje ${msgSent}`,
     };
   },
 };

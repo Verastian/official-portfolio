@@ -1,0 +1,35 @@
+@use "abstracts/mixins" as m;
+@use "abstracts/variables" as v;
+
+.social {
+  display: flex;
+  flex-direction: column;
+  ul {
+    display: flex;
+    justify-content: space-evenly;
+
+    li > a .icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: v.$white;
+        transition:background-color .5s;
+        &:hover{
+            background-color: v.$red-fluor;
+            svg {
+                  fill: v.$white;
+            }
+
+        }
+
+      svg {
+        width: 25px;
+        fill: v.$red-fluor;
+        &:hover{
+            fill: v.$white;
+            
+        }
+      }
+    }
+  }
+}

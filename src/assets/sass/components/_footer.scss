@@ -1,0 +1,83 @@
+@use "abstracts/mixins" as m;
+@use "abstracts/variables" as v;
+
+.footer {
+  background-color: v.$color-primary;
+  padding: calc(v.$separacion * 2) 0 calc(v.$separacion) 0;
+  color: v.$grey-6;
+  overflow-x: hidden;
+  &__logo {
+    position: relative;
+    span > svg {
+      .st2 {
+        fill: v.$color-secondary;
+      }
+      .st3,
+      .st1 {
+        fill: v.$color-primary;
+      }
+    }
+
+    .square1 {
+      position: absolute;
+      bottom: 0px;
+      right: -10px;
+      width: 300px;
+      height: 300px;
+      border: 6px solid v.$white;
+    }
+  }
+  &__square2 {
+    position: relative;
+    width: 100%;
+    height: auto;
+    .square2 {
+      position: absolute;
+      bottom: 100px;
+      right: -60px;
+      width: 200px;
+      height: 200px;
+      background-color: v.$red-fluor;
+    }
+  }
+  &__data {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 1em;
+
+    .right {
+      width: 50%;
+        ul {
+        display: flex;
+        justify-content: space-evenly;
+        li a{
+            color: v.$grey-6;
+        }
+      }
+    }
+  }
+  @include m.respond-to("bp-lg") {
+    /*  max-height: 120px; */
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    overflow-x: visible;
+
+    &__box:nth-child(1) {
+      grid-column: 3/4;
+      grid-row: 1/2;
+    }
+    &__box:nth-child(2) {
+      grid-column: 8/11;
+      grid-row: 1/2;
+    }
+    &__box:nth-child(3) {
+      grid-column: 11/12;
+      grid-row: 1/2;
+    }
+    &__box:nth-child(4) {
+      grid-column: 3/11;
+      grid-row: 2/3;
+    }
+  }
+}
