@@ -3,12 +3,13 @@
 
 .footer {
   background-color: v.$color-primary;
-  padding: calc(v.$separacion * 2) 0 calc(v.$separacion) 0;
+  padding: v.$separacion 0 calc(v.$separacion) 0;
   color: v.$grey-6;
   overflow-x: hidden;
   &__logo {
     position: relative;
-    span > svg {
+
+    div > svg {
       .st2 {
         fill: v.$color-secondary;
       }
@@ -17,44 +18,60 @@
         fill: v.$color-primary;
       }
     }
-
     .square1 {
       position: absolute;
-      bottom: 0px;
-      right: -10px;
-      width: 300px;
-      height: 300px;
-      border: 6px solid v.$white;
+      bottom: -0px;
+      right: 130px;
+      width: 97%;
+      height: 70%;
+      border: 0.3vw solid v.$white;
+      @include m.respond-to("bp-lg") {
+        bottom: -10px !important;
+        right: 0px !important;
+        width: 15vw;
+        height: 100%;
+        min-height: 30vh;
+      }
+    }
+    @include m.respond-to("bp-lg") {
+      width: 10vw;
     }
   }
-  &__square2 {
-    position: relative;
-    width: 100%;
-    height: auto;
-    .square2 {
-      position: absolute;
-      bottom: 100px;
-      right: -60px;
-      width: 200px;
-      height: 200px;
-      background-color: v.$red-fluor;
+  &__social {
+    margin: v.$separacion 0;
+    @include m.respond-to("bp-lg"){
+      margin:0;
+
     }
   }
   &__data {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-top: 1em;
+    flex-direction: column;
+    padding-top: 4em;
 
+    @include m.respond-to("bp-lg") {
+      flex-direction: row;
+    }
     .right {
-      width: 50%;
-        ul {
+      ul {
         display: flex;
-        justify-content: space-evenly;
-        li a{
-            color: v.$grey-6;
+        flex-direction: column;
+        text-align: center;
+        li a {
+          margin-top: 1em;
+          color: v.$grey-6;
+        }
+        @include m.respond-to("bp-lg") {
+          li a {
+            margin-top: 0em;
+          }
+          flex-direction: row;
+          justify-content: space-evenly;
         }
       }
+      width: 50%;
     }
   }
   @include m.respond-to("bp-lg") {
@@ -78,6 +95,20 @@
     &__box:nth-child(4) {
       grid-column: 3/11;
       grid-row: 2/3;
+    }
+
+    &__square2 {
+      position: relative;
+      width: 100%;
+      height: auto;
+      .square2 {
+        position: absolute;
+        bottom: 100px;
+        right: -60px;
+        width: 200px;
+        height: 200px;
+        background-color: v.$red-fluor;
+      }
     }
   }
 }

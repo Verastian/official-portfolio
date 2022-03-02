@@ -2,29 +2,7 @@
 @use "abstracts/mixins" as m;
 
 .navbar {
-  
-  &__items {
-    display: flex;
-    justify-content: center;
-    padding-bottom: 2em;
-    @include m.respond-to("bp-md") {
-      display: flex;
-      justify-content: flex-end;
-    }
-  }
-  &__logo {
-    width: 50%;
-    margin: 0 auto;
-    
-    @include m.respond-to("bp-md") {
-      position: absolute;
-      top: 10px;
-      z-index: 3;
-      width: 13rem;
-      margin: 0;
-    }
-  }
-  @include m.respond-to("bp-md") {
+  @include m.respond-to("bp-lg") {
     max-height: 120px;
     display: grid;
     grid-template-columns: repeat(12, 1fr);
@@ -34,46 +12,74 @@
       position: relative;
     }
     &__box:nth-child(2) {
-      grid-column: 8/11;
+      grid-column: 8/12;
     }
   }
-}
-
-// .nav__content {
-/* display: flex;
-  flex-direction: column;
-  @include m.respond-to("bp-md") {
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-  } */
-
-// }
-
-.nav__text {
-  display: flex;
-  flex-direction: column;
-  margin-top: 5rem;
-  @include m.respond-to("bp-md") {
-    flex-direction: row;
-  }
-  span {
-    color: v.$white;
-    padding: 0 0 0 2em;
-    font-size: 2rem;
-    font-family: v.$font-primary;
-    margin-bottom: 1rem;
-    font-weight: 400;
-    cursor: pointer;
-
-    &:hover {
-      color: v.$color-secondary;
+  
+  &__logo {
+    width: 30%;
+    margin: 0 auto;
+    
+    @include m.respond-to("bp-lg") {
+      position: absolute;
+      top: 10px;
+      z-index: 3;
+      width: 13rem;
+      margin: 0;
     }
-    /* https://escuelavue.es/series/curso-vue-router-espanol/vue-router-active-css-class/ 
-https://github.com/juanwmedia/vue-router-esencial/commit/7b8a2516fcf74fd77902569737f54e17fdc722cc
-observar los cambios en el constructor de router*/
-    &.activeExact {
-      color: v.$color-secondary;
+  }
+  &__items {
+    width: 100%;
+    display: flex;
+   
+    justify-content: center;
+    // padding-bottom: 2em;
+    
+    .nav__text {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 4rem;
+      @include m.respond-to("bp-lg") {
+        width: 100%;
+        justify-content: space-evenly;
+        flex-direction: row;
+      }
+      span {
+        height: fit-content;
+        color: v.$white;
+        padding: 0em 0 1em 0;
+        font-size: 2rem;
+        font-family: v.$font-primary;
+        margin-bottom: 50%;
+        font-weight: 400;
+        cursor: pointer;
+        &:hover {
+          color: v.$color-secondary;
+        }
+        /* https://escuelavue.es/series/curso-vue-router-espanol/vue-router-active-css-class/ 
+    https://github.com/juanwmedia/vue-router-esencial/commit/7b8a2516fcf74fd77902569737f54e17fdc722cc
+    observar los cambios en el constructor de router*/
+        &.activeExact {
+          color: v.$color-secondary;
+          &::after{
+            content: "";
+          width: 100%;
+          height: 1px;
+          position: absolute;
+          left: auto;
+          right: 0;
+          bottom: 3px;
+          transition: width 0.6s cubic-bezier(0.25, 0.8, 0.25, 1) 0s;
+          background: currentColor;
+          }
+        }
+        
+      }
+    }
+    @include m.respond-to("bp-lg") {
+      display: flex;
+      justify-content: flex-end;
     }
   }
 }

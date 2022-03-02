@@ -4,7 +4,7 @@
     <transition name="fade-routes" mode="out-in">
     <router-view />
     </transition>
-    <Footer/>
+    <Footer v-if="!$route.meta.hideFooter"/>
   </div>
 </template>
 <script>
