@@ -12,7 +12,7 @@
       </div>
     </div>
 
-    <div class="contact__box .contact__inner">
+    <div class="contact__box contact__inner">
       <ul>
         <li>
           <div
@@ -27,7 +27,7 @@
           <div
             class="list_inner"
             v-html="
-             git +
+              git +
               ` <div class='list_text'><span>GitHub</span><h3><a class='line__anim text-red-fluor' href='https://github.com/Verastian'>github.com/Verastian</a></h3> </div>`
             "
           ></div>
@@ -45,27 +45,48 @@
     </div>
 
     <div class="contact__box contact__block">
-      <div class="block"></div>
+      <span
+        class="block-1 moving_effect"
+        data-direction="y"
+        data-reverse="no"
+      ></span>
     </div>
     <div class="contact__box contact__block">
-      <div class="border"></div>
+      <div
+        class="border moving_effect"
+        data-direction="x"
+        data-reverse="yes"
+      ></div>
+    </div>
+    <div class="contact__box"><FormContact /></div>
+    <div class="contact__box contact__block">
+      <div
+        class="block-2 moving_effect"
+        data-direction="x"
+        data-reverse="no"
+      ></div>
     </div>
 
-    <div class="contact__box"><FormContact /></div>
   </div>
 </template>
 
 <script>
 import FormContact from "../components/contact/FormContact.vue";
-import { msg,git,link} from "../assets/img/svg/icons/iconsSvg";
+import { msg, git, link } from "../assets/img/svg/icons/iconsSvg";
+import { movingEffect } from "../utils/effects";
 export default {
   components: {
     FormContact,
   },
   data() {
     return {
-      msg,git,link
+      msg,
+      git,
+      link,
     };
+  },
+  mounted() {
+    movingEffect();
   },
 };
 </script>

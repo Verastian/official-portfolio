@@ -143,11 +143,11 @@
 }
 .skills__column-left {
   background-color: v.$red-fluor-bg;
-  padding: 1em 0;
+  padding: calc(v.$separacion *2) 0;
 }
 .skills__column-right {
   background-color: v.$color-secondary-bg;
-  padding: 1em 0;
+  padding: calc(v.$separacion *2) 0;
 }
 
 .skill__text-light {

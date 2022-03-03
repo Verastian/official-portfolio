@@ -23,6 +23,7 @@
           <span >&lt;</span> Acerca de Mí <span>&frasl;&gt;</span>
         </button>
       </div>
+      <SocialLinks/>
     </div>
 
    <!--  <div class="header__box header__square">
@@ -51,7 +52,11 @@
 
 <script>
 import {parallax} from "../../utils/effects";
+import SocialLinks from "../social/SocialLinks.vue";
 export default {
+  components:{
+SocialLinks,
+  },
   data() {
     return {
       message: "{ Developer: Fullstack }         ",
