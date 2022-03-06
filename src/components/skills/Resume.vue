@@ -6,11 +6,12 @@
           <span class="icon" v-html="edu"></span>
           <h3>{{ items.institution }}</h3>
         </div>
-        <span>{{ items.date }}</span>
+        <span>{{ items.date | extract_text('-')}}</span>
       </div>
       <div class="box__body">
         <h4>{{ items.career | uppercase }}</h4>
         <span>{{ items.description }}</span>
+        <span class="highlighted-text">{{ items.extra }}</span>
         <div v-if="items.documentation !== ''" class="box__body__actions">
           <div
             class="box__icons"
@@ -44,7 +45,7 @@
         <span>{{ items.date }}</span>
       </div>
       <div class="box__body">
-        <h4>{{ items.job }}</h4>
+        <h4>{{ items.job | uppercase }}</h4>
         <span>{{ items.description }}</span>
         <div v-if="items.documentation !== ''" class="box__body__actions">
           <div

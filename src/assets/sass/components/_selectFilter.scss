@@ -2,7 +2,7 @@
 @use "abstracts/mixins" as m;
 
 .select-filter__container{
-    padding: 2em 0;
+    padding: 2em 0 4em 0;
 }
 
 .dataFilter{
@@ -18,9 +18,9 @@
             /*  fill:v.$color-secondary-bg; */
             /* filter: invert(50%) sepia(80%) saturate(400%); */
             filter: gray;
-            filter: grayscale(100%);
+            filter: grayscale(40%);
             #ic_fluent_select_all_24_regular{
-                fill:v.$white;
+                fill:v.$color-primary;
             }
             transition:width .5s, height .5s, filter .8s;
             &:hover{
@@ -36,14 +36,18 @@
             flex-direction: column;
             justify-content: center;
             align-items: center; 
-            span{
-                color: v.$white;
+            .icons-text{
+                color: v.$color-primary;
+                transition: color .3s;
             }
             &:hover .icons-text{
-                color: v.$color-secondary;
+                color: v.$red-fluor;
+            }
+            #ic_fluent_select_all_24_regular{
+                transition: fill .3s;
             }
             &:hover #ic_fluent_select_all_24_regular{
-                fill:v.$color-secondary;
+                fill:v.$red-fluor;
             }
             
             
@@ -54,7 +58,7 @@
     }
     &__box {
         display: flex;
-        justify-content: center;
+        justify-content: space-evenly;
        
     }
 }

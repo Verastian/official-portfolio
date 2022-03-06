@@ -1,6 +1,6 @@
 <template>
   <div class="select-filter__container">
-    <h3 class="text-white">Puedes buscar por la tecnología que prefieras</h3>
+    <h3 >Puedes buscar por la tecnología que prefieras</h3>
     <DataFilter @click="setFilter('')" :text="text">
       <template v-slot:default="{ items }">
           <div class="box-icons" v-if="items.name === 'all'">

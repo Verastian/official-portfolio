@@ -1,7 +1,7 @@
 <template>
-  <div class="portfolio__container">
-    <div class="block__portfolio portfolio__header"></div>
-    <div class="block__portfolio portfolio__header-content">
+  <div class="portfolio">
+    <div class="portfolio__box portfolio__header"></div>
+    <div class="portfolio__box portfolio__header-content">
      <div class="text__content">
        <div class="title">
             <span class="small text-white">Trabajos destacados, </span>
@@ -10,8 +10,10 @@
           </div>
            </div>
      </div>
-    <div class="block__portfolio portfolio__section"></div>
-    <div class="block__portfolio portfolio__gallery">
+    <div class="portfolio__box portfolio__section moving_effect" data-direction="y"
+        data-reverse="no"></div>
+    <div class="portfolio__box portfolio__gallery">
+    <div class="portfolio__box portfolio__section-2"></div>
       <Gallery />
     </div>
   </div>
@@ -20,6 +22,7 @@
 <script>
 /* import { mapActions } from "vuex"; */
 // import Gallery from "../components/gallery/Gallery.vue";
+import { movingEffect } from "../utils/effects";
 export default {
   components: {
     Gallery: () =>import(/* webpackChunkName: "Gallery" */ "../components/gallery/Gallery.vue"),
@@ -34,6 +37,9 @@ export default {
   },
   created() {
     /* this.getDataRepos(); */
+  },
+   mounted() {
+    movingEffect();
   },
 };
 </script>

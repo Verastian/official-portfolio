@@ -28,6 +28,20 @@ Vue.filter("two_digits", (value) => {
   }
   return value;
 });
+//digits
+Vue.filter("extract_text", (value,char) => {
+  if (!value) return "";
+  let before = value.slice(0,value.indexOf(char))
+  // console.log(before)
+  let after = value.slice(value.indexOf(char)+1)
+  // console.log(after)
+  if(before === after){
+    
+    return  value.slice(value.indexOf(char)+1)
+  }else{
+    return value
+  }
+});
 
 // https://github.com/freearhey/vue2-filters
 // uppercase

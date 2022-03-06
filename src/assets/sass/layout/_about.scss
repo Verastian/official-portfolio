@@ -3,7 +3,7 @@
 
 .about {
   background-color: v.$grey-6;
-  padding: calc(v.$separacion * 2) 0;
+  padding-top: calc(v.$separacion * 2);
   color: v.$grey-1;
   overflow: hidden;
   p{

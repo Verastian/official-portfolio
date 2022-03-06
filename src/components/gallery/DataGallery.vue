@@ -1,6 +1,14 @@
 <template>
-  <ul class="gallery">
-    <li class="box text-white" v-for="(item, i) in filterByCategory" :key="i">
+  <ul
+    class="gallery"
+    :class="filterByCategory.length === 1 ? 'flex' : ''"
+  >
+    <li
+      class="box text-white"
+      v-for="(item, i) in filterByCategory"
+      :key="i"
+      :style="filterByCategory.length === 1 ? sizeOneCards.li : ''"
+    >
       <slot :items="item"></slot>
     </li>
   </ul>
@@ -17,11 +25,23 @@ export default {
         "-proyecto-MEVN-back-end",
         "0049-Otto-Klauss",
       ],
+      sizeOneCards: {
+        li: {
+          maxWidth: "600px",
+        },
+        /* flex: {
+          display: "flex",
+          justifyontent: "center",
+        }, */
+      },
     };
   },
   computed: {
     ...mapState("getDataRepos", ["repos"]),
     ...mapGetters("getDataRepos", ["filterByCategory"]),
+    /* sizeOneCards(){
+      return [ ]
+    } */
   },
   methods: {
     ...mapActions("getDataRepos", ["getDataRepos"]),

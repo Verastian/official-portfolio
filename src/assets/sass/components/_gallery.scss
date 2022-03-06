@@ -9,8 +9,13 @@
   grid-gap: 1em;
   grid-template-columns: repeat(auto-fit, 1fr);
   @include m.respond-to("bp-md") {
-    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
-    padding: 2em;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    // padding: 2em;
     grid-gap: 2em;
+    
   }
+}
+.flex{
+  display: flex;
+  justify-content: center;
 }
