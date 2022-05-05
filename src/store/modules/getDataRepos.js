@@ -1,6 +1,6 @@
 import axios from "axios";
-// import {client_id,client_secret} from '../../config.json'
-/* ?client_id=${client_id}&client_secret=${client_secret} */
+import { token } from "../../config.json";
+// ?client_id=${client_id}&client_secret=${client_secret}
 export default {
   namespaced: true,
   state: {
@@ -23,7 +23,12 @@ export default {
   actions: {
     async getDataRepos({ commit }, repoName) {
       await axios
-        .get(`repos/Verastian/${repoName}`)
+        .get(`repos/Verastian/${repoName}`, {
+          headers: {
+            'Authorization': `token ${token}`,
+            'Accept': "application/vnd.github.mercy-preview+json",
+          },
+        })
         .then((repo) => {
           const finalres = JSON.parse(JSON.stringify(repo.data));
           axios
@@ -39,7 +44,12 @@ export default {
               );
               finalres.languages = Object.fromEntries(lowerLanguage);
               axios
-                .get(`repos/Verastian/${repoName}/contents/readme`)
+                .get(`repos/Verastian/${repoName}/contents/readme`, {
+                  headers: {
+                    'Authorization': `token ${token}`,
+                    'Accept': "application/vnd.github.mercy-preview+json",
+                  },
+                })
                 .then((img) => {
                   let image = img.data[0].download_url;
 
@@ -71,7 +81,9 @@ export default {
     filterByCategory(state) {
       return state.repos.filter((ele) => {
         if (state.filter.category) {
-          return ele.language.toLowerCase() === state.filter.category.toLowerCase();
+          return (
+            ele.language.toLowerCase() === state.filter.category.toLowerCase()
+          );
         } else {
           return ele;
         }

@@ -14,7 +14,7 @@ import "bootstrap/dist/css/bootstrap.min.css"; */
 Vue.config.productionTip = false
 
 Vue.use(AsyncComputed)
-axios.defaults.baseURL='http://api.github.com/';
+axios.defaults.baseURL='https://api.github.com/';
 
 new Vue({
   router,

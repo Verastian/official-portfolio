@@ -155,6 +155,7 @@
     display: flex;
     justify-content: center;
     position: relative;
+    // overflow: hidden;
     .img__main {
       max-width: 60%;
       z-index: 3;
@@ -164,14 +165,17 @@
       }
     }
     .box-square-1 {
-      position: absolute;
-      left: 100px !important;
-      top:228px !important;
+      // position: absolute;
+      left: calc(-50vw + 50px) !important;
+      top:100px !important;
      width: 70%;
-      /* height: 100vh; */
       height: 70%;
       border: 10px solid v.$color-secondary;
       z-index: 1;
+      @include m.respond-to("bp-md"){
+        left: 100px !important;
+        top:228px !important;
+      }
       @include m.respond-to("bp-lg"){
         max-width: 30vw;
         max-height: 55vh;
@@ -180,18 +184,23 @@
     }
     @include m.respond-to("bp-lg"){
       .box-square-2 {
-        position: absolute;
-        left: 600px !important;
-        top: 650px !important;
+        // position: absolute;
+        left: calc(-400px + 50%) !important;
+        top: calc(200px + 50%) !important;
         width: 200px;
         height: 200px;
         background-color: v.$red-fluor;
         z-index: 4;
+       /*  @include m.respond-to("bp-xl"){
+          left: 300px !important;
+          top: 550px !important;
+      
+        } */
        
       }
       .box-square-3 {
-        position: absolute;
-        left: 170px !important;
+        // position: absolute;
+        left: calc(100px + 50%) !important;
         top: 150px !important;
         width: 120px;
         height: 180px;
@@ -200,6 +209,7 @@
       }
       
     }
+    
   }
 }
 
